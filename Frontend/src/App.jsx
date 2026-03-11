@@ -67,9 +67,17 @@ const AppRoutes = () => {
     {
       path: "/adminLogin",
       element: isAuthenticated ? (
-        <AdminDashboard />
+        <>
+          <Navbar />
+          <AdminDashboard />
+          <Footer />
+        </>
       ) : (
-        <Admin />
+        <>
+          <Navbar />
+          <Admin />
+          <Footer />
+        </>
       ),
     },
     {
