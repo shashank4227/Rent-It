@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Parallax } from "react-parallax";
 import "./Home.css";
 import videoSrc from '../../assets/images/video2.mp4';
+import backgroundImage from '../../assets/images/gallery/equipment_parallax_bg.png';
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import FeaturedTourList from "../../components/Featured-tours/FeaturedTourList";
 import MasonryImagesGallery from "../../components/imagegallery/MansonryImagesGallery";
