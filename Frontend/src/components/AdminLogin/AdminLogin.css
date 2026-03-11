@@ -6,7 +6,7 @@
     background: var(--color-bg-dark);
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
-    margin-top: 30px;
+    margin-top: 0;
 }
 
 .admin-box {

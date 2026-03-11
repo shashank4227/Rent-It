@@ -6,7 +6,7 @@
     background: var(--color-bg-dark);
     font-family: 'Montserrat', sans-serif;
     overflow: hidden; /* Prevent any scroll */
-    margin-top: 40px;
+    margin-top: 0;
 }
 
 .login-box {
