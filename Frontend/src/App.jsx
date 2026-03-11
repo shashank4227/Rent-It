@@ -165,7 +165,10 @@ const AppRoutes = () => {
     {
       path: "/Admin/:username",
       element: isAuthenticated && role == '5150'? (
-        <AdminDashboard />
+        <div className="dashboard-container">
+          <AdminDashboard />
+          <Dashboard1 />
+        </div>
       ) : null
     },
     {
