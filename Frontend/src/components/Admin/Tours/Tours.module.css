@@ -23,30 +23,46 @@
 }
 
 .tourItem {
-  background: transparent;
-  border-radius: 14px;
-  border: none;
-  padding: 0;
-  box-shadow: none;
+  background: white;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
 }
 
+.tourItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 71, 171, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Remove card1 own styling when inside tourItem */
+.tourItem :global(.card1) {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.tourItem :global(.card1):hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .deleteButton {
   width: 100%;
-  padding: 10px;
-  margin-top: 0;
+  padding: 12px;
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: white;
   border: none;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .deleteButton:hover {
