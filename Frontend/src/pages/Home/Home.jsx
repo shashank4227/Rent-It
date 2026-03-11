@@ -85,7 +85,6 @@ const Home = () => {
           </section>
         </Parallax>
 
-        <FeaturedTourList />
        
       <h3 className="section_subtitle"> GALLERY</h3>
                   <p className="gallery_title">

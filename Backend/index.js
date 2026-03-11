@@ -45,7 +45,7 @@ const swaggerOptions = {
       ],
       servers: [
         {
-          url: "https://fdfed.onrender.com",
+          url: "https://rent-it-25zn.onrender.com",
         },
       ],
       tags: [
@@ -73,7 +73,7 @@ connectDB();
 
 const allowedOrigins = process.env.CORS_ORIGIN
     ? process.env.CORS_ORIGIN.split(',')
-    : ['https://fdfed-gilt.vercel.app', 'http://localhost:5173'];
+    : ['https://rent-it-roan.vercel.app', 'https://fdfed-gilt.vercel.app', 'http://localhost:5173'];
 
 app.use(cors({
     origin: allowedOrigins,

@@ -2,7 +2,7 @@
 
 A full-stack equipment rental platform built for campus and lab use cases. Equipment owners (employees) can list assets, and users can browse, search, and rent them.
 
-**Live Demo**: [Frontend](https://fdfed-gilt.vercel.app) · [API Docs](https://fdfed.onrender.com/api-docs)
+**Live Demo**: [Frontend](https://rent-it-roan.vercel.app) · [API Docs](https://rent-it-25zn.onrender.com/api-docs)
 
 ---
 
