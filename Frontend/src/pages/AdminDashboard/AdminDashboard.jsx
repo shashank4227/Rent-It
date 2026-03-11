@@ -39,14 +39,15 @@ const AdminDashboard = () => {
   return (
     <div className="navbar">
       <div>
-        <div className="companyname">ADMIN Dashboard</div>
+        <div className="companyname">⚙️ Rent It</div>
+        <div className="admin-subtitle">Admin Control Panel</div>
         <div className="navsections">
-          <button className="navitem" onClick={() => navigate(`/dashboard1`)}>Login Status</button>
-          <button className="navitem" onClick={() => navigate(`/statistics/${username}`)}>Statistics</button>
-          <button className="navitem" onClick={() => navigate(`/customers`)}>Customers</button>
-          <button className="navitem" onClick={() => navigate(`/tours`)}>Tours</button>
-          <button className="navitem" onClick={() => navigate(`/AddAdmin`)}>Add Admin</button>
-          <button className="navitem" onClick={() => navigate(`/recent-bookings`)}>Recent 3 Months Bookings Records</button>
+          <button className="navitem" onClick={() => navigate(`/dashboard1`)}>📊 Login Status</button>
+          <button className="navitem" onClick={() => navigate(`/statistics/${username}`)}>📈 Statistics & Revenue</button>
+          <button className="navitem" onClick={() => navigate(`/customers`)}>👥 Customers</button>
+          <button className="navitem" onClick={() => navigate(`/tours`)}>🔧 Equipment</button>
+          <button className="navitem" onClick={() => navigate(`/AddAdmin`)}>🛡️ Add Admin</button>
+          <button className="navitem" onClick={() => navigate(`/recent-bookings`)}>📋 Recent Bookings</button>
         </div>
       </div>
       <div className="logoutButton" onClick={handleLogout}>

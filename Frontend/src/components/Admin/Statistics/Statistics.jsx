@@ -3,6 +3,7 @@ import { Chart } from 'chart.js/auto';
 
 const Statistics = () => {
   const [statisticsData, setStatisticsData] = useState(null);
+  const [revenue, setRevenue] = useState(0);
   const chartContainerRef = useRef(null);
   const chartInstanceRef = useRef(null);
 
@@ -12,10 +13,7 @@ const Statistics = () => {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tour-info`, {
           credentials: 'include',
         });
-        if (!response.ok) {
-          throw new Error(`Error fetching data: ${response.statusText}`);
-        }
-
+        if (!response.ok) throw new Error(`Error: ${response.statusText}`);
         const jsonData = await response.json();
         setStatisticsData(jsonData);
       } catch (error) {
@@ -23,7 +21,22 @@ const Statistics = () => {
       }
     };
 
+    const fetchRevenue = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/adminRevenue`, {
+          credentials: 'include',
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setRevenue(data.revenue || 0);
+        }
+      } catch (err) {
+        console.error('Error fetching revenue:', err);
+      }
+    };
+
     fetchData();
+    fetchRevenue();
   }, []);
 
   useEffect(() => {
@@ -71,6 +84,10 @@ const Statistics = () => {
           <div style={{ flex: 1, minWidth: '200px', background: 'linear-gradient(135deg, #059669, #34d399)', borderRadius: '16px', padding: '24px', color: 'white' }}>
             <p style={{ fontSize: '0.85rem', opacity: 0.9, margin: 0 }}>Total Bookings</p>
             <p style={{ fontSize: '2.5rem', fontWeight: 900, margin: '8px 0 0' }}>{statisticsData.totalBookings}</p>
+          </div>
+          <div style={{ flex: 1, minWidth: '200px', background: 'linear-gradient(135deg, #d97706, #fbbf24)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+            <p style={{ fontSize: '0.85rem', opacity: 0.9, margin: 0 }}>Commission Revenue (10%)</p>
+            <p style={{ fontSize: '2.5rem', fontWeight: 900, margin: '8px 0 0' }}>₹{revenue.toFixed(2)}</p>
           </div>
         </div>
       )}

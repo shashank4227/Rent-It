@@ -632,7 +632,8 @@ app.post('/book', isAuthenticated, async (req, res) => {
         }
 
         const totalCost = (tour.price * adults) + (tour.price * children);
-        const employeeShare = totalCost; // Give 100% to employee
+        const employeeShare = totalCost * 0.9; // 90% to employee
+        const adminShare = totalCost * 0.1;    // 10% to admin
 
         const newBooking = new Booking({
             name,
@@ -664,12 +665,16 @@ app.post('/book', isAuthenticated, async (req, res) => {
             }
         );
 
+        // Give 90% to equipment owner
         if (tour.creator && tour.creator._id) {
             await User.findByIdAndUpdate(
                 tour.creator._id,
                 { $inc: { revenue: employeeShare } }
             );
         }
+
+        // Give 10% commission to all admins
+        await Admin.updateMany({}, { $inc: { revenue: adminShare } });
 
         res.status(201).json({ message: 'Booking successful', booking: savedBooking });
     } catch (error) {
