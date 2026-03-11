@@ -67,16 +67,9 @@ const AppRoutes = () => {
     {
       path: "/adminLogin",
       element: isAuthenticated ? (
-        <>
-          <AdminDashboard />
-          <Footer />
-        </>
+        <AdminDashboard />
       ) : (
-        <>
-          <Navbar />
-          <Admin />
-          <Footer />
-        </>
+        <Admin />
       ),
     },
     {
@@ -172,10 +165,7 @@ const AppRoutes = () => {
     {
       path: "/Admin/:username",
       element: isAuthenticated && role == '5150'? (
-        <>
-          <AdminDashboard />
-          <Footer />
-        </>
+        <AdminDashboard />
       ) : null
     },
     {
@@ -214,45 +204,37 @@ const AppRoutes = () => {
     {
       path: '/customers',
       element: isAuthenticated && role == '5150'? (
-        <>
-          <div className="dashboard-container">
-            <AdminDashboard />
-            <Customers />
-          </div>
-        </>
+        <div className="dashboard-container">
+          <AdminDashboard />
+          <Customers />
+        </div>
       ) : null
     },
     {
       path: '/tours',
       element: isAuthenticated && role == '5150'? (
-        <>
-          <div className="dashboard-container">
-            <AdminDashboard />
-            <Tours role = {5150}/>
-          </div>
-        </>
+        <div className="dashboard-container">
+          <AdminDashboard />
+          <Tours role = {5150}/>
+        </div>
       ) : null
     },
     {
       path: "/AddAdmin",
       element: isAuthenticated && role == '5150'? (
-        <>
-          <div className="dashboard-container">
-            <AdminDashboard />
-            <AddAdmin />
-          </div>
-        </>
+        <div className="dashboard-container">
+          <AdminDashboard />
+          <AddAdmin />
+        </div>
       ) : null
     },
     {
       path: '/recent-bookings',
       element: isAuthenticated && role === '5150' ?  (
-        <>
-         <div className="dashboard-container">
-            <AdminDashboard />
-            <RecentBookings />
-          </div>
-        </>
+        <div className="dashboard-container">
+          <AdminDashboard />
+          <RecentBookings />
+        </div>
       ) : null
     },
     {
