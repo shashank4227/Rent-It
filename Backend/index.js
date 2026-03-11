@@ -114,17 +114,24 @@ app.get("/refresh", isAuthenticated, async (req, res) => {
         const name = req.cookies.userName;
         const rol = req.cookies.userRole;
 
-        const user = await User.findOne({ name });
+        let user;
+        let cartDetails = [];
+
+        if (rol == 5150) {
+            // Check Admin model for administrators
+            user = await Admin.findOne({ name });
+        } else {
+            // Check User model for regular users/employees
+            user = await User.findOne({ name });
+        }
 
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
 
-
         user.isLoggedIn = true;
         await user.save();
 
-        let cartDetails = [];
         if (user.role === "user" && Array.isArray(user.cart)) {
             const tourIds = user.cart.map((item) => item._id);
             const tours = await Tour.find({ _id: { $in: tourIds } }, "title price image");
@@ -1587,10 +1594,11 @@ app.post('/adminLogin', async (req, res) => {
                 path: '/'        // Cookie will be sent for all paths
             });
 
-            // Return success response with admin ID
+            // Return success response with admin ID and name
             return res.status(200).json({
                 message: 'Admin login successful',
-                id: existingAdmin.id
+                id: existingAdmin.id,
+                name: existingAdmin.name
             });
         } else {
             // If credentials don't match, return an error

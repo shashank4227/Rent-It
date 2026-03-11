@@ -48,6 +48,7 @@ const AdminDashboard = () => {
           <button className="navitem" onClick={() => navigate(`/tours`)}>🔧 Equipment</button>
           <button className="navitem" onClick={() => navigate(`/AddAdmin`)}>🛡️ Add Admin</button>
           <button className="navitem" onClick={() => navigate(`/recent-bookings`)}>📋 Recent Bookings</button>
+          <button className="navitem" onClick={() => navigate(`/`)}>🏠 Home Site</button>
         </div>
       </div>
       <div className="logoutButton" onClick={handleLogout}>

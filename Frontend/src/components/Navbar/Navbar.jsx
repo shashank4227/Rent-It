@@ -5,7 +5,7 @@ import { logout } from '../../features/auth/authSlice';
 import './Navbar.css';
 
 export const Navbar = () => {
-    const { isAuthenticated, role, cart } = useSelector((state) => state.auth);
+    const { isAuthenticated, role, cart, username } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
     const handleLogout = async () => {
@@ -43,11 +43,17 @@ export const Navbar = () => {
                     <NavLink to="/about" className={({ isActive }) => isActive ? "active-link" : ""}>
                         <li>About</li>
                     </NavLink>
-                    {!isAuthenticated ? (
-                        <NavLink to="/adminLogin" className={({ isActive }) => isActive ? "active-link" : ""}>
-                            <li>Admin</li>
+                    {isAuthenticated && role === '5150' ? (
+                        <NavLink to={`/Admin/${username}`} className={({ isActive }) => isActive ? "active-link" : ""}>
+                            <li>Dashboard</li>
                         </NavLink>
-                    ) : null}
+                    ) : (
+                        !isAuthenticated && (
+                            <NavLink to="/adminLogin" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                <li>Admin</li>
+                            </NavLink>
+                        )
+                    )}
                     {isAuthenticated && role === '8180' ? (
                         <>
                             <NavLink to="/create" className={({ isActive }) => isActive ? "active-link" : ""}>
