@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Parallax } from "react-parallax";
 import "./Home.css";
-import backgroundImage from "/c:/Users/MUDAVATH SHASHANK/.gemini/antigravity/brain/15cb31c9-0b2c-42e7-b98e-941cd98b145d/equipment_parallax_bg_1773248838941.png";import videoSrc from '../../assets/images/video2.mp4'; 
+import videoSrc from '../../assets/images/video2.mp4';
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import FeaturedTourList from "../../components/Featured-tours/FeaturedTourList";
 import MasonryImagesGallery from "../../components/imagegallery/MansonryImagesGallery";
