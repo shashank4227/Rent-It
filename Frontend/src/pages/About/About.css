@@ -1,0 +1,81 @@
+.about-container {
+  padding: 80px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.company-section, .story-section {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 120px;
+}
+
+.story-section {
+  flex-direction: row-reverse;
+}
+
+.company-image, .story-image {
+  flex: 1;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: var(--shadow-lg);
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.story-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-tech);
+  border-radius: 2px;
+}
+
+.story-text p {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: rgba(0,0,0,0.05);
+  margin-bottom: 120px;
+  display: none; /* Removed for a cleaner flow */
+}
+
+@media (max-width: 992px) {
+  .company-section, .story-section {
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+  }
+  
+  .story-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .company-image, .story-image {
+    height: 350px;
+  }
+}

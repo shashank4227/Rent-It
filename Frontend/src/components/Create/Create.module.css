@@ -1,0 +1,243 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #0047AB 0%, #00D1FF 100%);
+    --surface-glass: rgba(255, 255, 255, 0.7);
+    --border-glass: rgba(255, 255, 255, 0.3);
+}
+
+.pageWrapper {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background: #f8fafc;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 71, 171, 0.05) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(0, 209, 255, 0.05) 0, transparent 50%);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 30px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.05);
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-left: 0.25rem;
+}
+
+.input, .textarea {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: #0047AB;
+    box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
+}
+
+.textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.fileInputWrapper {
+    position: relative;
+    height: 120px;
+    background: white;
+    border: 2px dashed #e2e8f0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.fileInputWrapper:hover {
+    border-color: #0047AB;
+    background: rgba(0, 71, 171, 0.02);
+}
+
+.fileInput {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.fileInputLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.submitButton {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 30px -10px rgba(0, 71, 171, 0.4);
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(0, 71, 171, 0.5);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+/* Success Overlay */
+.successOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.successCard {
+    background: white;
+    padding: 3.5rem 2.5rem;
+    border-radius: 32px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+
+.successIcon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.successTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.successMessage {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.successButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.successButton {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.successButton:first-child {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.secondaryButton {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.successButton:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 2rem 1.5rem;
+    }
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+    .successButtons {
+        flex-direction: column;
+    }
+}

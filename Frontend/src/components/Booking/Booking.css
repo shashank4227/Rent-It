@@ -1,0 +1,223 @@
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 40px;
+    padding: 100px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Equipment Details Section */
+.tour-details {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+
+.tour-info h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.tour-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.tour-info p {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tour-info p strong {
+    color: #1e293b;
+    min-width: 120px;
+}
+
+.tour-info .rental-fee {
+    font-size: 1.5rem;
+    color: #0047AB;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+/* Reviews Styling */
+.reviews h3 {
+    margin-top: 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.review-item {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Booking Form Section */
+.booking-form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.booking-form h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    margin-top: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+}
+
+.booking-form input:focus {
+    border-color: #0047AB;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
+    outline: none;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #0047AB 0%, #00D1FF 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 71, 171, 0.2);
+}
+
+.booking-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 71, 171, 0.3);
+    filter: brightness(1.1);
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.success-message {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 1px solid #10b981;
+}
+
+.success-message .success-hint {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 12px 0 20px;
+    opacity: 0.9;
+}
+
+.success-message .view-rentals-btn {
+    width: auto;
+    padding: 12px 24px;
+    background: #059669;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0;
+    transition: all 0.2s ease;
+}
+
+.success-message .view-rentals-btn:hover {
+    background: #047857;
+}
+
+.api-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid #fecaca;
+}
+
+.booking-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+    }
+    
+    .booking-form {
+        max-width: 100%;
+        position: static;
+    }
+    
+    .tour-image {
+        height: 300px;
+    }
+}

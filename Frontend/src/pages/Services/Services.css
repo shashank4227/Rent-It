@@ -1,0 +1,122 @@
+.services-container {
+  padding: 100px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-container h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--color-text-dark);
+  margin-bottom: 20px;
+}
+
+.services-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-bottom: 80px;
+  font-weight: 500;
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  text-align: left;
+}
+
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar-card {
+  padding: 40px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.sidebar-card h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-text-dark);
+  margin-bottom: 20px;
+  background: var(--gradient-tech);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-card p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  background: rgba(0, 71, 171, 0.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+.service-details h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--color-text-dark);
+}
+
+.service-details p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .services-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container h1 {
+    font-size: 2.8rem;
+  }
+}

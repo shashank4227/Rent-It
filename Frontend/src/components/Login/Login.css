@@ -1,0 +1,106 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Center to avoid needing padding-top that causes scroll */
+    justify-content: center;
+    background: var(--color-bg-dark);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden; /* Prevent any scroll */
+    margin-top: 40px;
+}
+
+.login-box {
+    display: flex;
+    width: 900px;
+    height: 550px;
+    background: var(--color-bg-card);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-container {
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+}
+
+.form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.form-container input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 15px 20px !important;
+    border-radius: 12px !important;
+    color: white !important;
+    margin-bottom: 20px !important;
+    font-size: 1rem !important;
+    transition: var(--transition-normal);
+}
+
+.form-container input:focus {
+    border-color: var(--color-primary) !important;
+    outline: none;
+}
+
+.form-container p {
+    color: var(--color-text-muted);
+    margin-bottom: 30px;
+}
+
+.submit-btn {
+    width: 100% !important;
+    background: var(--gradient-tech) !important;
+    padding: 15px !important;
+    border-radius: 12px !important;
+    font-weight: 800 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.video-container {
+    width: 50%;
+    position: relative;
+    background: var(--gradient-tech); /* Use theme color combination */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-text-overlay {
+    padding: 60px;
+    text-align: left;
+}
+
+.video-text-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.video-text-overlay p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 992px) {
+    .login-box {
+        width: 90%;
+        flex-direction: column;
+        height: auto;
+    }
+    .form-container, .video-container {
+        width: 100%;
+    }
+}

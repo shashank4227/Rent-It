@@ -1,0 +1,316 @@
+:root {
+    --sidebar-width: 300px;
+    --dashboard-bg: #f8fafc;
+    --primary-gradient: linear-gradient(135deg, #0047AB 0%, #00D1FF 100%);
+    --surface-glass: rgba(255, 255, 255, 0.7);
+    --border-glass: rgba(255, 255, 255, 0.3);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+}
+
+.dashboardContainer {
+    display: flex;
+    min-height: 100vh;
+    background: var(--dashboard-bg);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 71, 171, 0.05) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(0, 209, 255, 0.05) 0, transparent 50%);
+}
+
+.sidebarContainer {
+    width: var(--sidebar-width);
+    position: sticky; /* Changed from fixed to sticky */
+    top: 70px; 
+    left: 0;
+    height: calc(100vh - 70px);
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border-glass);
+    padding: 2.5rem 2rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardTitle {
+    font-size: 1.5rem; /* Slightly smaller to fit better */
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.welcomeText {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+}
+
+.statsCards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.statCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.statCard h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.mainContentContainer {
+    flex: 1;
+    margin-left: 0; /* Remove margin-left if using flex layout effectively */
+    padding: 5rem 3rem 3rem; /* Increased top padding */
+    width: calc(100% - var(--sidebar-width));
+    margin-top: 50px;
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headerActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.headerActions h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.createTourBtn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px -5px rgba(0, 71, 171, 0.3);
+}
+
+.createTourBtn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 30px -5px rgba(0, 71, 171, 0.4);
+}
+
+.toursGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.tourCard {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    height: 100%;
+}
+
+.tourCard:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 71, 171, 0.1);
+}
+
+.tourRevenue {
+    padding: 1.5rem;
+    background: #fafcff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.tourRevenue h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.revenueValue {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #10b981; /* Premium Emerald Green */
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.bookings {
+    padding: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+    background: #ffffff;
+    flex-grow: 1;
+}
+
+.bookingsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.bookingsHeader h4 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.badge {
+    background: #f0f7ff;
+    color: #0047AB;
+    padding: 0.35rem 0.85rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border: 1px solid rgba(0, 71, 171, 0.05);
+}
+
+.bookingsList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.bookingsList li {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.bookingsList li:hover {
+    background: #ffffff;
+    border-color: #0047AB;
+    color: #0047AB;
+    transform: translateX(5px);
+}
+
+.bookingsList li i {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.noBookings {
+    color: #94a3b8;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.85rem;
+    border: 1px dashed #e2e8f0;
+}
+
+.noTours {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 6rem 2rem;
+    background: var(--surface-glass);
+    border-radius: 30px;
+    border: 1px solid var(--border-glass);
+}
+
+.noTours p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .sidebarContainer {
+        width: 260px;
+    }
+    .mainContentContainer {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboardContainer {
+        flex-direction: column;
+    }
+    .sidebarContainer {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 2rem;
+    }
+    .mainContentContainer {
+        margin-left: 0;
+        width: 100%;
+        padding: 2rem;
+    }
+    .statsCards {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+    .statCard {
+        min-width: 200px;
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .statsCards {
+        flex-direction: column;
+    }
+    .headerActions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .createTourBtn {
+        width: 100%;
+    }
+}
