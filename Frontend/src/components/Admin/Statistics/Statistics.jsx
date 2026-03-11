@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
-import Revenue from '../Revenue/Revenue';
 
 const Statistics = () => {
   const [statisticsData, setStatisticsData] = useState(null);
-  const chartContainerRef = useRef(null); // Reference to the canvas container
-  const chartInstanceRef = useRef(null);  // Reference to the chart instance
+  const chartContainerRef = useRef(null);
+  const chartInstanceRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tour-info`, {
-          credentials: 'include', // Include credentials in the request (e.g., cookies)
+          credentials: 'include',
         });
         if (!response.ok) {
           throw new Error(`Error fetching data: ${response.statusText}`);
@@ -29,47 +28,56 @@ const Statistics = () => {
 
   useEffect(() => {
     if (statisticsData && chartContainerRef.current) {
-      // Destroy previous chart instance if it exists
       if (chartInstanceRef.current) {
         chartInstanceRef.current.destroy();
       }
 
       const ctx = chartContainerRef.current.getContext('2d');
 
-      // Create new chart instance
       chartInstanceRef.current = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-          labels: ['Total Tours', 'Total Bookings'],
+          labels: ['Total Equipment Listed', 'Total Bookings'],
           datasets: [{
             data: [statisticsData.totalTours, statisticsData.totalBookings],
-            backgroundColor: ['#D8BB27', '#2744D8'],
+            backgroundColor: ['#0047AB', '#00D1FF'],
+            borderWidth: 2,
+            borderColor: '#fff',
           }],
         },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { padding: 20, font: { size: 14, weight: '600' } }
+            }
+          }
+        }
       });
     }
   }, [statisticsData]);
 
   return (
     <main className="maincontainer">
-      <Revenue />
-      <h1>Statistics</h1>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ textAlign: 'center' }}><h2 style={{ color: '#008080' }}>Statistics</h2></div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '90px', height: '80vh', overflow: 'auto' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-            <div style={{ height: '300px', width: '300px' }}>
-              <h3 style={{ color: '#088F8F' }}>Total Tours vs Total Bookings</h3>
-              <canvas ref={chartContainerRef} style={{ height: '300px', width: '300px' }} />
-              {statisticsData && (
-                <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                  <p style={{ fontWeight: 'bold' }}>Total Tours: {statisticsData.totalTours}</p>
-                  <p style={{ fontWeight: 'bold' }}>Total Bookings: {statisticsData.totalBookings}</p>
-                </div>
-              )}
-            </div>
+      <h1 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '30px' }}>Platform Overview</h1>
+
+      {statisticsData && (
+        <div style={{ display: 'flex', gap: '24px', marginBottom: '40px', flexWrap: 'wrap' }}>
+          <div style={{ flex: 1, minWidth: '200px', background: 'linear-gradient(135deg, #0047AB, #00D1FF)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+            <p style={{ fontSize: '0.85rem', opacity: 0.9, margin: 0 }}>Total Equipment</p>
+            <p style={{ fontSize: '2.5rem', fontWeight: 900, margin: '8px 0 0' }}>{statisticsData.totalTours}</p>
+          </div>
+          <div style={{ flex: 1, minWidth: '200px', background: 'linear-gradient(135deg, #059669, #34d399)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+            <p style={{ fontSize: '0.85rem', opacity: 0.9, margin: 0 }}>Total Bookings</p>
+            <p style={{ fontSize: '2.5rem', fontWeight: 900, margin: '8px 0 0' }}>{statisticsData.totalBookings}</p>
           </div>
         </div>
+      )}
+
+      <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+        <h3 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Equipment vs Bookings</h3>
+        <canvas ref={chartContainerRef} />
       </div>
     </main>
   );
