@@ -64,10 +64,11 @@ const Tours = ({role}) => {
 
   return (
     <main className="maincontainer">
-      <h1>Equipment List</h1>
+      <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1e293b', margin: '0 0 4px' }}>🔧 Equipment</h1>
+      <p style={{ color: '#64748b', fontSize: '0.9rem', margin: '0 0 24px' }}>{filteredTours.length} items listed</p>
       <input
         type="text"
-        placeholder="Search by title..."
+        placeholder="🔍 Search equipment..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className={styles.searchInput}
@@ -81,19 +82,20 @@ const Tours = ({role}) => {
                 showReviewButton={0} 
                 showBookButton={0} 
                 showUpdateButton={role === 5150 ? 1 : 0}
+                showCartButton={false}
               />
               {role === 5150 && (
                 <button 
                   className={styles.deleteButton} 
                   onClick={() => handleDelete(tour._id)}
                 >
-                  Delete
+                  🗑️ Delete Equipment
                 </button>
               )}
             </div>
           ))
         ) : (
-          <div>No equipment found</div>
+          <div style={{ textAlign: 'center', padding: '40px', color: '#94a3b8', gridColumn: '1/-1' }}>No equipment found</div>
         )}
       </div>
     </main>
