@@ -1,48 +1,87 @@
-.admin-signup-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .admin-signup-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .signup-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .signup-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .signup-message {
-    margin-top: 20px;
-    font-size: 16px;
-    color: green;
-  }
-  
+.addadmin-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 4px;
+}
+
+.addadmin-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0 0 32px;
+}
+
+.addadmin-card {
+  max-width: 440px;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.addadmin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addadmin-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.addadmin-field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.addadmin-field input:focus {
+  border-color: #60a5fa;
+}
+
+.addadmin-button {
+  padding: 14px;
+  background: linear-gradient(135deg, #0047AB, #00D1FF);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 4px;
+}
+
+.addadmin-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 71, 171, 0.3);
+}
+
+.addadmin-message {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.addadmin-message.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.addadmin-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+}

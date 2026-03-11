@@ -1,64 +1,78 @@
 import React, { useState } from 'react';
-import './AddAdmin.css'; // Import CSS for styling
+import './AddAdmin.css';
 
 const AddAdmin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState(''); // 'success' or 'error'
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setMessage('');
     
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/adminSignup`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: username,
-          password: password,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: username, password }),
       });
 
       if (response.ok) {
-        setMessage('Admin signed up successfully.');
+        setMessage('Admin created successfully!');
+        setStatus('success');
+        setUsername('');
+        setPassword('');
       } else {
-        setMessage('Signup failed.');
+        const data = await response.json();
+        setMessage(data.message || 'Signup failed.');
+        setStatus('error');
       }
     } catch (error) {
-      setMessage('An error occurred during signup.');
+      setMessage('Network error. Please try again.');
+      setStatus('error');
     }
   };
 
   return (
-    <div className="admin-signup-container">
-      <h1>Add Admin</h1> {/* Updated heading */}
-      <form onSubmit={handleSignup} className="admin-signup-form">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="signup-button">Sign Up</button>
-      </form>
-      {message && <p className="signup-message">{message}</p>}
-    </div>
+    <main className="maincontainer">
+      <h1 className="addadmin-title">🛡️ Add New Admin</h1>
+      <p className="addadmin-subtitle">Create a new administrator account</p>
+
+      <div className="addadmin-card">
+        <form onSubmit={handleSignup} className="addadmin-form">
+          <div className="addadmin-field">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter admin username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="addadmin-field">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter secure password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="addadmin-button">Create Admin</button>
+        </form>
+
+        {message && (
+          <div className={`addadmin-message ${status}`}>
+            {status === 'success' ? '✅' : '❌'} {message}
+          </div>
+        )}
+      </div>
+    </main>
   );
 };
 

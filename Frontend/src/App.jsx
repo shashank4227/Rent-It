@@ -267,12 +267,12 @@ const AppRoutes = () => {
     },
     {
       path: "/dashboard1",
-      element: (
-        <>
-          {/* <Navbar/> */}
+      element: isAuthenticated && role === '5150' ? (
+        <div className="dashboard-container">
+          <AdminDashboard />
           <Dashboard1 />
-        </>
-      ),
+        </div>
+      ) : null,
     },
     {
       path: "/services",

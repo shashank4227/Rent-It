@@ -10,8 +10,8 @@ function Dashboard1() {
 
 
     return (
-        <div>
-
+        <div className="maincontainer">
+            <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1e293b', marginBottom: '24px' }}>📊 Login Status</h1>
             <UserLogged />
             <UsersList />
             <EmployeeLogged />
